@@ -1,22 +1,19 @@
 EMPLOYEES = [
     {
         "id": 1,
-        "name": "Snickers",
-        "species": "Dog",
+        "name": "Employee1",
         "locationId": 1,
         "customerId": 4
     },
     {
         "id": 2,
-        "name": "Gypsy",
-        "species": "Dog",
+        "name": "Employee2",
         "locationId": 1,
         "customerId": 2
     },
     {
         "id": 3,
-        "name": "Blue",
-        "species": "Cat",
+        "name": "Employee3",
         "locationId": 2,
         "customerId": 1
     }
