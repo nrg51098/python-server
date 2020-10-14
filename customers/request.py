@@ -1,22 +1,9 @@
+from models.customer import Customer
+
 CUSTOMERS = [
-    {
-        "id": 1,
-        "name": "Customer1",
-        "locationId": 1,
-        "customerId": 4
-    },
-    {
-        "id": 2,
-        "name": "Customer2",        
-        "locationId": 1,
-        "customerId": 2
-    },
-    {
-        "id": 3,
-        "name": "Customer3",
-        "locationId": 2,
-        "customerId": 1
-    }
+    Customer(1, "customer1", "Dog", "Admitted", 1, 4),
+    Customer(2, "customer2", "Dog", "Admitted", 1, 2),
+    Customer(3, "customer3", "Dog", "Admitted", 2, 1)    
 ]
 
 
@@ -37,3 +24,43 @@ def get_single_customer(id):
             requested_customer = customer
 
     return requested_customer
+
+def create_customer(customer):
+    # Get the id value of the last customer in the list
+    max_id = CUSTOMERS[-1]["id"]
+
+    # Add 1 to whatever that number is
+    new_id = max_id + 1
+
+    # Add an `id` property to the customer dictionary
+    customer["id"] = new_id
+
+    # Add the customer dictionary to the list
+    CUSTOMERS.append(customer)
+
+    # Return the dictionary with `id` property added
+    return customer
+
+def delete_customer(id):
+    # Initial -1 value for customer index, in case one isn't found
+    customer_index = -1
+
+    # Iterate the CUSTOMERS list, but use enumerate() so that you
+    # can access the index value of each item
+    for index, customer in enumerate(CUSTOMERS):
+        if customer["id"] == id:
+            # Found the customer. Store the current index.
+            customer_index = index
+
+    # If the customer was found, use pop(int) to remove it from list
+    if customer_index >= 0:
+        CUSTOMERS.pop(customer_index)
+
+def update_customer(id, new_customer):
+    # Iterate the CUSTOMERS list, but use enumerate() so that
+    # you can access the index value of each item.
+    for index, customer in enumerate(CUSTOMERS):
+        if customer["id"] == id:
+            # Found the customer. Update the value.
+            CUSTOMERS[index] = new_customer
+            break

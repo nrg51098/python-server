@@ -1,28 +1,9 @@
+from models.animal import Animal
+
 ANIMALS = [
-    {
-        "id": 1,
-        "name": "Animal1",
-        "species": "Dog",
-        "locationId": 1,
-        "customerId": 4,
-        "status": "Admitted"
-    },
-    {
-        "id": 2,
-        "name": "Animal2",
-        "species": "Dog",
-        "locationId": 1,
-        "customerId": 2,
-        "status": "Admitted"
-    },
-    {
-        "id": 3,
-        "name": "Animal3",
-        "species": "Cat",
-        "locationId": 2,
-        "customerId": 1,
-        "status": "Admitted"
-    }
+    Animal(1, "animal1", "Dog", "Admitted", 1, 4),
+    Animal(2, "animal2", "Dog", "Admitted", 1, 2),
+    Animal(3, "animal3", "Dog", "Admitted", 2, 1)    
 ]
 
 

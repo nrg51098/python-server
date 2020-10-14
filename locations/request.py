@@ -1,22 +1,9 @@
+from models.location import Location
+
 LOCATIONS = [
-    {
-        "id": 1,
-        "name": "Customer1",
-        "locationId": 1,
-        "customerId": 4
-    },
-    {
-        "id": 2,
-        "name": "Customer2",
-        "locationId": 1,
-        "customerId": 2
-    },
-    {
-        "id": 3,
-        "name": "Customer3",
-        "locationId": 2,
-        "customerId": 1
-    }
+    Location(1, "location1", "Dog", "Admitted", 1, 4),
+    Location(2, "location2", "Dog", "Admitted", 1, 2),
+    Location(3, "location3", "Dog", "Admitted", 2, 1)    
 ]
 
 
@@ -37,3 +24,43 @@ def get_single_location(id):
             requested_location = location
 
     return requested_location
+
+def create_location(location):
+    # Get the id value of the last location in the list
+    max_id = LOCATIONS[-1]["id"]
+
+    # Add 1 to whatever that number is
+    new_id = max_id + 1
+
+    # Add an `id` property to the location dictionary
+    location["id"] = new_id
+
+    # Add the location dictionary to the list
+    LOCATIONS.append(location)
+
+    # Return the dictionary with `id` property added
+    return location
+
+def delete_location(id):
+    # Initial -1 value for location index, in case one isn't found
+    location_index = -1
+
+    # Iterate the LOCATIONS list, but use enumerate() so that you
+    # can access the index value of each item
+    for index, location in enumerate(LOCATIONS):
+        if location["id"] == id:
+            # Found the location. Store the current index.
+            location_index = index
+
+    # If the location was found, use pop(int) to remove it from list
+    if location_index >= 0:
+        LOCATIONS.pop(location_index)
+
+def update_location(id, new_location):
+    # Iterate the LOCATIONS list, but use enumerate() so that
+    # you can access the index value of each item.
+    for index, location in enumerate(LOCATIONS):
+        if location["id"] == id:
+            # Found the location. Update the value.
+            LOCATIONS[index] = new_location
+            break
