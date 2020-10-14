@@ -3,8 +3,8 @@
     {
       "previewLimit": 50,
       "driver": "SQLite",
-      "name": "Python Kennels",
-      "database": "C:\\Users\\Nikhil\\workspace\\python-server\\kennel.db"
+      "name": "Pythen Kennels",
+      "database": "kennel.db"
     }
   ],
   "sqltools.useNodeRuntime": true
