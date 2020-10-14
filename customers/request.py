@@ -1,22 +1,9 @@
+from models.customer import Customer
+
 CUSTOMERS = [
-    {
-        "id": 1,
-        "name": "Customer1",
-        "locationId": 1,
-        "customerId": 4
-    },
-    {
-        "id": 2,
-        "name": "Customer2",        
-        "locationId": 1,
-        "customerId": 2
-    },
-    {
-        "id": 3,
-        "name": "Customer3",
-        "locationId": 2,
-        "customerId": 1
-    }
+    Customer(1, "customer1", "Dog", "Admitted", 1, 4),
+    Customer(2, "customer2", "Dog", "Admitted", 1, 2),
+    Customer(3, "customer3", "Dog", "Admitted", 2, 1)    
 ]
 
 

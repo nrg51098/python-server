@@ -1,22 +1,9 @@
+from models.employee import Employee
+
 EMPLOYEES = [
-    {
-        "id": 1,
-        "name": "Employee1",
-        "locationId": 1,
-        "customerId": 4
-    },
-    {
-        "id": 2,
-        "name": "Employee2",
-        "locationId": 1,
-        "customerId": 2
-    },
-    {
-        "id": 3,
-        "name": "Employee3",
-        "locationId": 2,
-        "customerId": 1
-    }
+    Employee(1, "employee1", "Dog", "Admitted", 1, 4),
+    Employee(2, "employee2", "Dog", "Admitted", 1, 2),
+    Employee(3, "employee3", "Dog", "Admitted", 2, 1)    
 ]
 
 
