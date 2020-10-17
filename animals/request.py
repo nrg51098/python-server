@@ -3,9 +3,7 @@ import sqlite3
 import json
 
 ANIMALS = [
-    Animal(1, "animal1", "Dog", "Admitted", 1, 4),
-    Animal(2, "animal2", "Dog", "Admitted", 1, 2),
-    Animal(3, "animal3", "Dog", "Admitted", 2, 1)    
+   
 ]
 
 
