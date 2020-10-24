@@ -15,6 +15,13 @@ class HandleRequests(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
 
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+        self.send_header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept')
+        self.end_headers()
+
     # Here's a method on the class that overrides the parent's method.
     # It handles any GET request.
     def do_GET(self):
@@ -100,6 +107,7 @@ class HandleRequests(BaseHTTPRequestHandler):
 
     # Here's a method on the class that overrides the parent's method.
     # It handles any PUT request.
+    
     def do_PUT(self):
         self._set_headers(204)
         content_len = int(self.headers.get('content-length', 0))
@@ -108,8 +116,9 @@ class HandleRequests(BaseHTTPRequestHandler):
 
         # Parse the URL
         (resource, id) = self.parse_url(self.path)
+    
+        success = False
 
-        # Delete a single animal from the list
         if resource == "animals":
             update_animal(id, post_body)
         if resource == "employees":
@@ -118,8 +127,12 @@ class HandleRequests(BaseHTTPRequestHandler):
             update_location(id, post_body)
         if resource == "customers":
             update_customer(id, post_body)
+        
+        if success:
+            self._set_headers(204)
+        else:
+            self._set_headers(404)
 
-        # Encode the new animal and send in response
         self.wfile.write("".encode())
     
     def do_DELETE(self):
